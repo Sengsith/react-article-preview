@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github](https://github.com/Sengsith/react-article-preview)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/Sengsith/react-article-preview)
+- Live Site URL: [Netlify](https://monumental-starlight-0690e1.netlify.app/)
 
 ## My process
 
