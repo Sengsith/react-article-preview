@@ -1,38 +1,209 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+:root {
+  /* Custom Properties */
+  --clr-primary-darkgrayblue: hsl(217, 19%, 35%); /* Header/Name */
+  --clr-primary-darkblue: hsl(214, 17%, 51%); /* Body*/
+  --clr-primary-grayblue: hsl(212, 23%, 69%); /* Body BG */
+  --clr-primary-lightgrayblue: hsl(210, 46%, 95%); /* Component BG */
+
+  --fs-header: 1rem;
+  --fs-body: .8125rem;
+  --ff-body: 'Manrope', sans-serif;
+  --fw-medium: 500; 
+  --fw-bold: 700;
+}
+
+/* General Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid limegreen !important; */
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--clr-primary-grayblue);
+  color: var(--clr-primary-darkblue);
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  font-weight: var(--fw-medium);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: var(--clr-primary-darkgrayblue);
+  font-size: var(--fs-header);
+  font-weight: var(--fw-bold);
+  padding: 2rem 2rem 1rem 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 { 
+  font-size: var(--fs-header);
+  font-weight: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+p {
+  padding: 0 2rem;
+  line-height: 1.5;
+}
+
+.App {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.Attribution {
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Card {
+  background-color: var(--clr-primary-lightgrayblue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 20rem;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  text-align: start;
+  position: relative;
+}
+
+.Card > img {
+  width: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.Author {
+  background-color: var(--clr-primary-lightgrayblue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  border-radius: .5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.Author > img {
+  width: 15%;
+  border-radius: 100vmax;
+}
+
+.AuthorDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  right: 1rem;
+}
+
+.Name {
+  color: var(--clr-primary-darkgrayblue);
+  font-weight: var(--fw-bold);
+}
+
+.ShareBtn {
+  background-color: var(--clr-primary-grayblue);
+  border: none;
+  margin-left: auto;
+  border-radius: 100vmax;
+}
+
+.ShareBtn:hover {
+  cursor: pointer;
+}
+
+.ShareBtn > img {
+  width: 100%;
+  padding: .5rem;
+}
+
+.Share {
+  background-color: var(--clr-primary-darkgrayblue);
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  bottom: 0;
+  z-index: -10;
+  /* Put share inside CardAuthor if absolute doesn't work out in desktop */
+}
+
+@media (min-width: 800px) {
+  .Card {
+    flex-direction: row;
+    align-items: center;
+    max-width: 50rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Card > img {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: .5rem;
   }
+
+  .ShareBtn {
+    transition: 100ms ease-in-out;
+  }
+
+  .ShareBtn:hover {
+    scale: 1.1;
+    transform: translateY(-.3rem);
+  }
+
+  .Share {
+    right: -4.5rem;
+    bottom: 2rem;
+    max-width: 15rem;
+    justify-content: center;
+    border-radius: .5rem;
+    display: none;
+    animation: fade 250ms ease-in-out forwards;
+    opacity: 0;
+    scale: .1;
+  }
+
+  @keyframes fade {
+    100% {
+      scale: 1;
+      opacity: 1;
+      transform: translateY(-4rem);
+    }
+  }
+
+  .Share > button {
+    display: none;
+  }
+
+  .Share:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-top: 1rem solid var(--clr-primary-darkgrayblue);
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-left: 1rem solid transparent;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -1rem;
+  }
+
+  
 }
